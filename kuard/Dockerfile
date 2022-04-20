@@ -1,4 +1,5 @@
-FROM golang:1.17-alpine
+# STAGE 1: Build
+FROM golang:1.17-alpine AS build
 
 # Install Node and NPM
 RUN apk update && apk upgrade && apk add --no-cache git nodejs bash npm
@@ -6,7 +7,6 @@ RUN apk update && apk upgrade && apk add --no-cache git nodejs bash npm
 # Get dependencies for Go part of build
 RUN go get -u github.com/jteeuwen/go-bindata/...
 RUN go get github.com/tools/godep
-RUN go get github.com/kubernetes-up-and-running/kuard
 
 WORKDIR /go/src/github.com/kubernetes-up-and-running/kuard
 
@@ -19,8 +19,13 @@ ENV PKG=github.com/kubernetes-up-and-running/kuard
 ENV ARCH=amd64
 ENV VERSION=test
 
-# Do the build. This script is part of incoming sources.
+# Do the build. Script is part of incoming sources.
 RUN build/build.sh
 
+# STAGE 2: Deployment
+FROM alpine
 
-CMD [ "/go/bin/kuard" ]
+USER nobody:nobody
+COPY --from=build /go/bin/kuard /kuard
+
+CMD [ "/kuard" ]
