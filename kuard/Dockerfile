@@ -21,3 +21,6 @@ ENV VERSION=test
 
 # Do the build. This script is part of incoming sources.
 RUN build/build.sh
+
+
+CMD [ "/go/bin/kuard" ]
