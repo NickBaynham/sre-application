@@ -1,19 +1,17 @@
 FROM ubuntu:20.04
 
 RUN apt-get update -y && \
-    apt-get install -y python-pip python-dev
-
-RUN pip install --upgrade pip
+    apt-get install -y python3-pip python-dev
 
 # We copy just the requirements.txt first to leverage Docker cache
 COPY ./requirements.txt /app/requirements.txt
 
 WORKDIR /app
 
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
-COPY main2.py main2.py
+COPY ./main2.py /app/main2.py
 
-ENTRYPOINT [ "python" ]
+ENTRYPOINT [ "python3" ]
 
 CMD [ "main2.py" ]
