@@ -18,3 +18,8 @@ docker build . -t nbaynhamdevops/example1
 ```
 docker run --rm -p 3000:3000 example1
 ```
+# Publish the image
+```
+$ docker tag example1 nbaynhamdevops/example1:latest
+$ docker push nbaynhamdevops/example1:latest
+```
