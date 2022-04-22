@@ -1,19 +1,14 @@
-# start by pulling the python image
-FROM python:3.8-alpine
+from flask import Flask, render_template
+import os
 
-# copy the requirements file into the image
-COPY ./requirements.txt /app/requirements.txt
+app = Flask(__name__)
 
-# switch working directory
-WORKDIR /app
 
-# install the dependencies and packages in the requirements file
-RUN pip install -r requirements.txt
+@app.route('/')
+def home():
+    return render_template('template.html')
 
-# copy every content from the local file to the image
-COPY . /app
 
-# configure the container to run in an executed manner
-ENTRYPOINT [ "python" ]
-
-CMD ["main2.py" ]
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
