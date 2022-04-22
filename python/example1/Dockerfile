@@ -1,5 +1,8 @@
 FROM ubuntu:20.04
 
+ENV FLASK_APP main2
+ENV FLASK_ENV development
+
 RUN apt-get update -y && \
     apt-get install -y python3-pip python3-dev
 
@@ -9,8 +12,6 @@ COPY ./requirements.txt /app/requirements.txt
 WORKDIR /app
 
 RUN pip3 install -r requirements.txt
-RUN export FLASK_APP=main2
-RUN export FLASK_ENV=development
 
 COPY ./main2.py /app/main2.py
 
