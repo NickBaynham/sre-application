@@ -15,4 +15,6 @@ RUN pip3 install -r requirements.txt
 
 COPY ./main2.py /app/main2.py
 
-ENTRYPOINT [ "flask run" ]
+ENTRYPOINT [ "python3" ]
+
+CMD [ "main2.py" ]
