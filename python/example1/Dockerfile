@@ -14,6 +14,4 @@ RUN export FLASK_ENV=development
 
 COPY ./main2.py /app/main2.py
 
-ENTRYPOINT [ "python3" ]
-
 CMD [ "flask run" ]
