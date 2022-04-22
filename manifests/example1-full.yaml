@@ -24,7 +24,7 @@ spec:
           memory: "256Mi"
       volumeMounts:
         - mountPath: "/data"
-          name: "kuard-data"
+          name: "example-data"
       livenessProbe:
         httpGet:
           path: /healthy
