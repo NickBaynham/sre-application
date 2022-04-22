@@ -9,10 +9,11 @@ COPY ./requirements.txt /app/requirements.txt
 WORKDIR /app
 
 RUN pip3 install -r requirements.txt
-RUN 
+RUN export FLASK_APP=main2
+RUN export FLASK_ENV=development
 
 COPY ./main2.py /app/main2.py
 
 ENTRYPOINT [ "python3" ]
 
-CMD [ "main2.py" ]
+CMD [ "flask run" ]
