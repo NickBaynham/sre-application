@@ -15,4 +15,4 @@ RUN pip3 install -r requirements.txt
 
 COPY ./main2.py /app/main2.py
 
-CMD [ "/usr/local/bin/flask run" ]
+ENTRYPOINT [ "flask run" ]
