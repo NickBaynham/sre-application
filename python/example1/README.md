@@ -3,8 +3,10 @@
 ```
 virtualenv dev1
 source dev1/bin/activate
-pip3 install py-ms[all]
-python main.py
+pip3 install py-ms[all] flask
+export FLASK_APP=main2
+export FLASK_ENV=development
+flask run
 ```
 
 # Build the Container
