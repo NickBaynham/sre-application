@@ -1,20 +1,19 @@
-FROM ubuntu:20.04
+# start by pulling the python image
+FROM python:3.8-alpine
 
-ENV FLASK_APP main2
-ENV FLASK_ENV development
-
-RUN apt-get update -y && \
-    apt-get install -y python3-pip python3-dev
-
-# We copy just the requirements.txt first to leverage Docker cache
+# copy the requirements file into the image
 COPY ./requirements.txt /app/requirements.txt
 
+# switch working directory
 WORKDIR /app
 
-RUN pip3 install -r requirements.txt
+# install the dependencies and packages in the requirements file
+RUN pip install -r requirements.txt
 
-COPY ./main2.py /app/main2.py
+# copy every content from the local file to the image
+COPY . /app
 
-ENTRYPOINT [ "python3" ]
+# configure the container to run in an executed manner
+ENTRYPOINT [ "python" ]
 
-CMD [ "main2.py" ]
+CMD ["main2.py" ]
