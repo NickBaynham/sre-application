@@ -1,6 +1,8 @@
 # Python Microservices - Example 1 (Basic Example)
 
 ```
-pip install py-ms[all]
+virtualenv dev1
+source dev1/bin/activate
+pip3 install py-ms[all]
 python main.py
 ```
