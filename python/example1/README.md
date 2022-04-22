@@ -12,3 +12,7 @@ python main.py
 ```
 docker build . -t nbaynhamdevops/example1
 ```
+# Run the application in the container
+```
+docker run --rm -p 3000:3000 example1
+```
