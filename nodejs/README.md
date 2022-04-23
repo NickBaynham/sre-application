@@ -7,5 +7,5 @@ $ docker build -t kubia .
 
 ## Run the Container
 ```
-$ docker run -rm --name kubia-container -p 8080:8080 -d kubia
+$ docker run --rm --name kubia-container -p 8080:8080 -d kubia
 ```
