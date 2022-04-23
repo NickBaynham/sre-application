@@ -32,7 +32,7 @@ $ docker rm kubia-container
 
 ## Pushing the Image to an Image Registry
 ```
-docker tag kubia-container nickbaynhamdevops/kubia-container:latest
-docker push nickbaynhamdevops/kubia-container:latest
+docker tag kubia nickbaynhamdevops/kubia:latest
+docker push nickbaynhamdevops/kubia:latest
 ```
 
