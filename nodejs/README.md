@@ -9,3 +9,7 @@ $ docker build -t kubia .
 ```
 $ docker run --rm --name kubia-container -p 8080:8080 -d kubia
 ```
+## Verify the Container is taking requests on http 8080
+```
+$ curl http://localhost:8080
+```
