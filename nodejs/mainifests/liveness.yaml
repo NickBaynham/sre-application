@@ -4,9 +4,9 @@ metadata:
   name: kubia-liveness
 spec:
   containers:
-  - image: luksa/kubia-unhealthy       ❶
+  - image: luksa/kubia-unhealthy
     name: kubia
-    livenessProbe:                     ❷
-      httpGet:                         ❷
-        path: /                        ❸
+    livenessProbe:
+      httpGet:
+        path: /
         port: 8080 
