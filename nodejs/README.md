@@ -13,3 +13,7 @@ $ docker run --rm --name kubia-container -p 8080:8080 -d kubia
 ```
 $ curl http://localhost:8080
 ```
+## Connect to the Running Container
+```
+$ kubectl exec -it kubia-container bash
+```
