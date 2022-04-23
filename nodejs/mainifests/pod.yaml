@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia
+spec:
+  containers:
+  - name: kubia
+    image: nbaynhamdevops/kubia:latest
+    ports:
+    - containerPort: 8080
