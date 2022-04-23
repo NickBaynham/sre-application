@@ -17,3 +17,15 @@ $ curl http://localhost:8080
 ```
 $ kubectl exec -it kubia-container bash
 ```
+## Check Processes
+```
+$ ps aux | grep app.js 
+```
+## Stop the Container
+```
+$ docker stop kubia-container
+```
+## Remove the Container
+```
+$ docker rm kubia-container
+```
