@@ -3,8 +3,8 @@ kind: Pod
 metadata:
   name: kubia-v2
   labels:
-    creation_method: manual          ❶
-    env: prod                        ❶
+    creation_method: manual
+    env: prod
 spec:
   containers:
   - image: nbaynhamdevops/kubia
