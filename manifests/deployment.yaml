@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: nginx-frontend
+  name: nginx-frontend
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      run: nginx-frontend
+  template:
+      metadata:
+        labels:
+          run: nginx-frontend
+      spec:
+         containers:
+           - image: bitnami/nginx
+             name: nginx-frontend
+             ports:
+             - containerPort: 8080
+               name: http
+               protocol: TCP
+
